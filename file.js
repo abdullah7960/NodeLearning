@@ -17,9 +17,26 @@ const fs = require('fs');
 //     }
 // })
 
-fs.appendFileSync("./test.txt", new Date().getDate().toLocaleString());
-fs.appendFileSync("./test.txt", "${Date} He Abdullah\n");
+// fs.appendFileSync("./test.txt", new Date().getDate().toLocaleString());
+// fs.appendFileSync("./test.txt", "${Date} He Abdullah\n");
 
-fs.cpSync("./test.txt", "./copy.txt");
+// fs.cpSync("./test.txt", "./copy.txt");
 
-console.log(fs.statSync("./test.txt").isFile());
+// console.log(fs.statSync("./test.txt").isFile());
+
+//blocking
+// console.log("1");
+// fs.readFile("contacts.txt", "utf-8", (err, result) => {
+//     console.log(result);
+// });
+
+//non bloacking
+console.log("1");
+fs.readFile("contacts.txt", "utf-8", (err, result) => {
+    console.log(result);
+});
+// console.log(result);
+
+console.log("2");
+
+
