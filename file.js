@@ -58,5 +58,6 @@ fs.readFile('contacts.txt', 'utf-8', (err, result) => {
 });
 
 console.log("4");
+console.log(os.cpus().length);
 
 
