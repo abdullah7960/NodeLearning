@@ -6,7 +6,7 @@ const myServer = http.createServer((req, res) => {
     // console.log("New Req Rec.");
     // console.log(req.headers);
     if (req.url === '/favicon.ico') return res.end();
-    const log = `${Date.now()} : ${req.url} New Request Received\n`;
+    const log = `${Date.now()} :${req.method} ${req.url} New Request Received\n`;
     const myUrl = url.parse(req.url, true);
     console.log(myUrl);
     fs.appendFile("log.txt", log, (err, data) => {
@@ -20,6 +20,11 @@ const myServer = http.createServer((req, res) => {
 
                 res.end(`Hy, ${username}`);
                 break
+            case '/signup':
+                if (req.method == 'GET') res.end('This is a signup Form');
+                else if (req.method == "POST") {
+                    req.end("Success");
+                }
             default: res.end("Not foumd")
         }
     });
