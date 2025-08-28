@@ -10,7 +10,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    return res.send("Hello From About Page");
+    return res.send("Hello From About Page" + ' hey ' + req.query.name + ' you are ' + req.query.age);
 })
 
 
@@ -46,4 +46,4 @@ const myServer = http.createServer(app);
 
 
 
-myServer.listen(8000, () => console.log("Server Started!"));
+app.listen(8000, () => console.log("Server Started!"));
